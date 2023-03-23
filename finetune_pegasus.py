@@ -22,6 +22,7 @@ def preprocess_function(examples):
     return res
 
 dataset = preprocess_function(dataset)
+print("Load dataset successfully ...")
 data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
 # 定义微调参数
@@ -48,6 +49,8 @@ trainer = Seq2SeqTrainer(
 )
 
 # 进行微调
+print("Train model is begin ...")
 trainer.train()
 
+print("Save pretrained model ...")
 model.save_pretrained(dict.save_finetune_pegasus_summary)
