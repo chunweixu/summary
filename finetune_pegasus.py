@@ -25,6 +25,7 @@ dataset = preprocess_function(dataset)
 print("Load dataset successfully ...")
 data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 print("Prepare to train ...")
+
 # 定义微调参数
 print("Set parameter ...")
 training_args = Seq2SeqTrainingArguments(
@@ -39,7 +40,7 @@ training_args = Seq2SeqTrainingArguments(
 )
 
 # 定义微调器
-print("Define finetune trainer")
+print("Define finetune trainer ...")
 trainer = Seq2SeqTrainer(
     model=model,
     args=training_args,
