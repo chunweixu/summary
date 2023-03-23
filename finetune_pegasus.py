@@ -24,23 +24,22 @@ def preprocess_function(examples):
 dataset = preprocess_function(dataset)
 print("Load dataset successfully ...")
 data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
-
+print("Prepare to train ...")
 # 定义微调参数
+print("Set parameter ...")
 training_args = Seq2SeqTrainingArguments(
     output_dir=dict.train_model_template,
-    evaluation_strategy = "steps",
-    eval_steps = 100,
-    save_steps = 500,
-    num_train_epochs = 1,
-    per_device_train_batch_size = 8,
-    per_device_eval_batch_size = 8,
-    logging_steps = 100,
-    learning_rate = 1e-4,
-    warmup_steps = 500,
-    predict_with_generate=True,
+    save_steps=500,
+    num_train_epochs=1,
+    per_device_train_batch_size=16,
+    logging_steps=100,
+    learning_rate=1e-4,
+    logging_dir="data/log/pegasus",
+    warmup_steps=500,
 )
 
 # 定义微调器
+print("Define finetune trainer")
 trainer = Seq2SeqTrainer(
     model=model,
     args=training_args,
