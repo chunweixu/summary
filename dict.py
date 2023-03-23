@@ -1,4 +1,4 @@
-pegasus_model_path = ""
+pegasus_model_path = "data/model/pegasus_summary"
 finetune_pegasus_train_text = "data/dataset/LCSTS/train.src.txt"
 finetune_pegasus_train_label = "data/dataset/LCSTS/train.tgt.txt"
 train_model_template = "data/model/template"
