@@ -1,6 +1,6 @@
-import datasets
 import dict
 from utils import *
+from tokenizers_pegasus import PegasusTokenizer
 from transformers import PegasusTokenizer, PegasusForConditionalGeneration, DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
 
 # 加载数据集
