@@ -16,7 +16,7 @@ model = PegasusForConditionalGeneration.from_pretrained(model_name)
 def preprocess_function(examples):
     res = []
     for inputs, targets in zip(examples['doc'], examples['summary']):
-        inputs = tokenizer(inputs, padding="max_length", truncation=True, max_length=512)
+        inputs = tokenizer(inputs, padding="max_length", truncation=True, max_length=256)
         targets = tokenizer(targets, padding="max_length", truncation=True, max_length=128)
         res.append({"input_ids": inputs["input_ids"], "attention_mask": inputs["attention_mask"], "decoder_input_ids": targets["input_ids"], "decoder_attention_mask": targets["attention_mask"], "labels": targets["input_ids"]})
     return res
@@ -32,7 +32,7 @@ training_args = Seq2SeqTrainingArguments(
     output_dir=dict.train_model_template,
     save_steps=500,
     num_train_epochs=1,
-    per_device_train_batch_size=16,
+    per_device_train_batch_size=4,
     logging_steps=100,
     learning_rate=1e-4,
     logging_dir="data/log/pegasus",
