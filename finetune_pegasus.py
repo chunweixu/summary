@@ -1,7 +1,7 @@
 import dict
 from utils import *
 from tokenizers_pegasus import PegasusTokenizer
-from transformers import PegasusTokenizer, PegasusForConditionalGeneration, DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
+from transformers import PegasusForConditionalGeneration, DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
 
 # 加载数据集
 dataset = {'doc': read_file(dict.finetune_pegasus_train_text)[:10000], 'summary': read_file(dict.finetune_pegasus_train_label)[:10000]}
