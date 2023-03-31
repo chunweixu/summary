@@ -18,7 +18,7 @@ prompt_train = "文本："
 prompt_train_label = "摘要："
 for t, l in zip(train_data["text"], train_data["target"]):
     response, history = model.chat(tokenizer, prompt_train+t+' '+prompt_train_label+l, history=[])
-    print(reponse)
+    print(response)
 print("generactor text summary.")
 # prompt = "请给下面一段文本做摘要："
 predict = []
