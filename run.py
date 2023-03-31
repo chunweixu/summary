@@ -21,7 +21,7 @@ test_data = {"text": read_file("data/dataset/LCSTS/test.src.txt")[:1000], "targe
 #     response, history = model.chat(tokenizer, t + " => " + l, history=[])
 #     print(response)
 print("generactor text title.")
-prompt = "请给下面的文本生成标题："
+prompt = "请直接给出下面文本的标题："
 predict = []
 for t in test_data['text']:
     # response, history = model.chat(tokenizer, prompt_train+t+' '+prompt_train_label, history=[])
