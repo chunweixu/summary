@@ -11,7 +11,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 model = AutoModel.from_pretrained(model_name, trust_remote_code=True).half().cuda()
 
 train_data = {"text": read_file("data/dataset/LCSTS/train.src.txt")[:20], "target": read_file("data/dataset/LCSTS/train.tgt.txt")[:20]}
-test_data = {"text": read_file("data/dataset/LCSTS/test.src.txt")[:100], "target": read_file("data/dataset/LCSTS/test.tgt.txt")[:100]}
+test_data = {"text": read_file("data/dataset/LCSTS/test.src.txt")[:1000], "target": read_file("data/dataset/LCSTS/test.tgt.txt")[:1000]}
 # begin = "请生成文本的标题"
 # response, history = model.chat(tokenizer, begin, history=[])
 # prompt_train = "文本："
@@ -21,7 +21,7 @@ test_data = {"text": read_file("data/dataset/LCSTS/test.src.txt")[:100], "target
 #     response, history = model.chat(tokenizer, t + " => " + l, history=[])
 #     print(response)
 print("generactor text title.")
-prompt = "请给文本生成标题："
+prompt = "请给下面的文本生成标题："
 predict = []
 for t in test_data['text']:
     # response, history = model.chat(tokenizer, prompt_train+t+' '+prompt_train_label, history=[])
