@@ -11,7 +11,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 model = AutoModel.from_pretrained(model_name, trust_remote_code=True).half().cuda()
 
 train_data = {"text": read_file("data/dataset/LCSTS/train.src.txt")[:10], "target": read_file("data/dataset/LCSTS/train.tgt.txt")[:10]}
-test_data = {"text": read_file("data/dataset/LCSTS/test.src.txt")[:10], "target": read_file("data/dataset/LCSTS/test.tgt.txt")[:10]}
+test_data = {"text": read_file("data/dataset/LCSTS/test.src.txt")[:1000], "target": read_file("data/dataset/LCSTS/test.tgt.txt")[:1000]}
 # begin = "我给你一些文本标题生成的示例模版供你学习，然后根据学习的内容进行文本标题生成"
 # response, history = model.chat(tokenizer, begin, history=[])
 # prompt_train = "文本："
